@@ -6,11 +6,14 @@
 /*   By: flunkademic <flunkademic@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 20:52:20 by flunkademic       #+#    #+#             */
-/*   Updated: 2025/09/11 21:37:16 by flunkademic      ###   ########.fr       */
+/*   Updated: 2025/10/01 00:00:27 by flunkademic      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+// only needed for PRINTF debugging
 #include "libft.h"
+*/
 
 int ft_strlen(char *str)
 {
@@ -27,8 +30,11 @@ int ft_strlen(char *str)
     }
     return i;
 }
-
+/*
 int main(void)
 {
-    return (ft_strlen("bitchass"));
+    printf("Length: %d\n", ft_strlen("bitchass"));
+    // return (ft_strlen("bitchass"));
+    return (0);
 }
+*/

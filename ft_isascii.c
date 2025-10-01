@@ -6,7 +6,7 @@
 /*   By: flunkademic <flunkademic@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 20:18:39 by flunkademic       #+#    #+#             */
-/*   Updated: 2025/09/11 20:38:26 by flunkademic      ###   ########.fr       */
+/*   Updated: 2025/10/01 09:23:38 by flunkademic      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@ int ft_isascii(int c)
 {
     return (c >= 0 && c <= 127);
 }
-
-// int main(void)
-// {
-//     return (ft_isascii(129));
-// }
+/*
+int main(void)
+{
+    return (ft_isascii(129));
+    return (0);
+}
+*/

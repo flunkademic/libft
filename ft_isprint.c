@@ -6,7 +6,7 @@
 /*   By: flunkademic <flunkademic@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 20:39:53 by flunkademic       #+#    #+#             */
-/*   Updated: 2025/09/11 20:51:50 by flunkademic      ###   ########.fr       */
+/*   Updated: 2025/10/01 09:23:19 by flunkademic      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@ int ft_isprint(int c)
 {
     return (c >= 32 && c <= 126);
 }
-
-// int main(void)
-// {
-//     return (ft_isprint(*"a"));
-// }
+/*
+int main(void)
+{
+    return (ft_isprint(*"a"));
+    return (0);
+}
+*/

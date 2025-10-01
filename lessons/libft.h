@@ -6,7 +6,7 @@
 /*   By: flunkademic <flunkademic@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 11:08:17 by flunkademic       #+#    #+#             */
-/*   Updated: 2025/10/01 09:24:51 by flunkademic      ###   ########.fr       */
+/*   Updated: 2025/09/30 23:55:55 by flunkademic      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+
+/* Bonus - Linked list structure */
+typedef struct s_list
+{
+    void            *content;
+    struct s_list   *next;
+}   t_list;
+
 
 /* ************************************************************************** */
 /* Part 1 - Libc-like functions                                               */
@@ -206,5 +214,173 @@ void *ft_calloc(size_t count, size_t size);
  */
 char *ft_strdup(const char *s1);
 
+
+
+
+
+
+/* ************************************************************************** */
+/* Part 2 - Additional functions                                              */
+/* ************************************************************************** */
+
+/* ft_substr | extract substring
+ * Receives: const char *s, unsigned int start, size_t len
+ * Returns: malloc'ed substring or NULL
+ * Edge cases: start>strlen(s) returns empty string
+ * 42: char *ft_substr(char const *s, unsigned int start, size_t len);
+ */
+char *ft_substr(char const *s, unsigned int start, size_t len);
+
+/* ft_strjoin | join two strings
+ * Receives: const char *s1, const char *s2
+ * Returns: malloc'ed concatenation
+ * Edge cases: either string NULL -> undefined
+ * 42: char *ft_strjoin(char const *s1, char const *s2);
+ */
+char *ft_strjoin(char const *s1, char const *s2);
+
+/* ft_strtrim | trim set chars from start/end
+ * Receives: const char *s1, const char *set
+ * Returns: malloc'ed trimmed string
+ * Edge cases: set="" returns copy of s1
+ * 42: char *ft_strtrim(char const *s1, char const *set);
+ */
+char *ft_strtrim(char const *s1, char const *set);
+
+/* ft_split | split string by delimiter
+ * Receives: const char *s, char c
+ * Returns: NULL-terminated array of malloc'ed strings
+ * Edge cases: consecutive delimiters -> ignored
+ * 42: char **ft_split(char const *s, char c);
+ */
+char **ft_split(char const *s, char c);
+
+/* ft_itoa | integer to string
+ * Receives: int n
+ * Returns: malloc'ed string representing n
+ * Edge cases: INT_MIN handled
+ * 42: char *ft_itoa(int n);
+ */
+char *ft_itoa(int n);
+
+/* ft_strmapi | apply function to each char, returns new string
+ * Receives: const char *s, function f(unsigned int, char)
+ * Returns: malloc'ed string or NULL if s=NULL
+ * 42: char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+ */
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+/* ft_striteri | apply function to each char, in-place
+ * Receives: char *s, function f(unsigned int, char*)
+ * Returns: void
+ * Edge cases: NULL s -> does nothing
+ * 42: void ft_striteri(char *s, void (*f)(unsigned int, char*));
+ */
+void ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+/* ft_putchar_fd | write char to fd
+ * Receives: char c, int fd
+ * Returns: void
+ * Edge cases: invalid fd -> write fails
+ * 42: void ft_putchar_fd(char c, int fd);
+ */
+void ft_putchar_fd(char c, int fd);
+
+/* ft_putstr_fd | write string to fd
+ * Receives: char *s, int fd
+ * Returns: void
+ * Edge cases: s=NULL -> does nothing
+ * 42: void ft_putstr_fd(char *s, int fd);
+ */
+void ft_putstr_fd(char *s, int fd);
+
+/* ft_putendl_fd | write string + newline to fd
+ * Receives: char *s, int fd
+ * Returns: void
+ * Edge cases: s=NULL -> writes only newline
+ * 42: void ft_putendl_fd(char *s, int fd);
+ */
+void ft_putendl_fd(char *s, int fd);
+
+/* ft_putnbr_fd | write integer to fd
+ * Receives: int n, int fd
+ * Returns: void
+ * Edge cases: INT_MIN handled
+ * 42: void ft_putnbr_fd(int n, int fd);
+ */
+void ft_putnbr_fd(int n, int fd);
+
+
+
+
+
+
+/* ************************************************************************** */
+/* Bonus - Linked list functions                                              */
+/* ************************************************************************** */
+
+
+/* ft_lstnew | create new list node
+ * Receives: void *content
+ * Returns: pointer to new node
+ * 42: t_list *ft_lstnew(void *content);
+ */
+t_list *ft_lstnew(void *content);
+
+/* ft_lstadd_front | add node at front
+ * Receives: t_list **lst, t_list *new
+ * Returns: void
+ * 42: void ft_lstadd_front(t_list **lst, t_list *new);
+ */
+void ft_lstadd_front(t_list **lst, t_list *new);
+
+/* ft_lstsize | count nodes in list
+ * Receives: t_list *lst
+ * Returns: number of nodes
+ * 42: int ft_lstsize(t_list *lst);
+ */
+int ft_lstsize(t_list *lst);
+
+/* ft_lstlast | return last node
+ * Receives: t_list *lst
+ * Returns: pointer to last node or NULL
+ * 42: t_list *ft_lstlast(t_list *lst);
+ */
+t_list *ft_lstlast(t_list *lst);
+
+/* ft_lstadd_back | add node at end
+ * Receives: t_list **lst, t_list *new
+ * Returns: void
+ * 42: void ft_lstadd_back(t_list **lst, t_list *new);
+ */
+void ft_lstadd_back(t_list **lst, t_list *new);
+
+/* ft_lstdelone | delete single node
+ * Receives: t_list *lst, function del(void *)
+ * Returns: void
+ * 42: void ft_lstdelone(t_list *lst, void (*del)(void*));
+ */
+void ft_lstdelone(t_list *lst, void (*del)(void*));
+
+/* ft_lstclear | delete all nodes
+ * Receives: t_list **lst, function del(void *)
+ * Returns: void
+ * 42: void ft_lstclear(t_list **lst, void (*del)(void*));
+ */
+void ft_lstclear(t_list **lst, void (*del)(void*));
+
+/* ft_lstiter | apply function to all nodes
+ * Receives: t_list *lst, function f(void *)
+ * Returns: void
+ * 42: void ft_lstiter(t_list *lst, void (*f)(void *));
+ */
+void ft_lstiter(t_list *lst, void (*f)(void *));
+
+/* ft_lstmap | map function to nodes, return new list
+ * Receives: t_list *lst, function f(void *), del(void *)
+ * Returns: pointer to new list or NULL
+ * 42: t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+ */
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

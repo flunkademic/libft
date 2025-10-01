@@ -1,4 +1,28 @@
+Why? C’s standard library functions often use int for small values to avoid type-promotion issues when calling the function.
 
+But memset only cares about the lowest 8 bits (1 byte) of that int.
+
+
+===========================================================
+
+
+Key rule: Anything after return in the same function is dead code — it will never run.
+
+
+===========================================================
+
+int ft_isprint(int c)
+{
+    return (c >= 32 && c <= 126);
+}
+/*
+int main(void)
+{
+    return (ft_isprint(*"a"));
+}
+*/
+
+===========================================================
 
 default argument promotion
 
@@ -9,6 +33,22 @@ In C, a header file is any file that ends with .h and contains declarations: fun
 
 
 ===========================================================
+
+
+Ah, yes — that’s a subtle point. Here’s the difference:
+
+Right now you have:
+
+int main(void)
+{
+    return ft_strlen("bitchass");
+}
+
+===========================================================
+
+This is valid C, but the return value of main is the exit status of the program, not printed to the terminal. So the program exits with code 9, but you don’t see anything.
+
+Normally in C, main should return 0 to indicate success. Returning the result of a function is technically allowed, but it’s only meaningful to the operating system.
 
 
 a character with a high bit set (like é or ß in some encoding).
