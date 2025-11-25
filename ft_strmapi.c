@@ -1,4 +1,3 @@
-
 #include "libft.h"
 /*
 char	test_function(unsigned int i, char c)
@@ -12,13 +11,13 @@ char	test_function(unsigned int i, char c)
 */
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		i;
-	int		len;
-	char	*result;
+	unsigned int	i;
+	unsigned int	len;
+	char			*result;
 
-	i = 0;
 	if (!s || !f)
 		return (NULL);
+	i = 0;
 	len = ft_strlen(s);
 	result = (char *)malloc(sizeof(char) * len + 1);
 	if (!result)
