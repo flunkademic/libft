@@ -1,4 +1,3 @@
-
 #include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -8,19 +7,19 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		end;
 	int		len;
 
-	start = 0;
-	end = ft_strlen(s1);
 	if (!s1 || !set)
 		return (NULL);
+	start = 0;
+	end = ft_strlen(s1);
 	while (s1[start] && ft_strchr(set, s1[start]))
 		start++;
-	while (s1[end - 1] && ft_strchr(set, s1[end - 1]))
+	while (end > start && s1[end - 1] && ft_strchr(set, s1[end - 1]))
 		end--;
 	if (end > start)
 		len = end - start;
-	else 
+	else
 		len = 0;
-	trim_res = malloc(sizeof(char) * (len + 1));
+	trim_res = malloc(len + 1);
 	if (!trim_res)
 		return (NULL);
 	ft_strlcpy(trim_res, s1 + start, len + 1);
@@ -29,14 +28,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 /*
 int main(void)
 {
-	char const test1[] = " find Something to cut find find find";
-	char const set[] = " find";
+	char const test1[] = "";
+	char const set[] = " fid";
 	char *my_result = ft_strtrim(test1, set);
 
 	if (!my_result)
-		return 1;
-
-	printf("Trimmed string: '%s'\n", my_result);
+		return (1);
+	printf("Original string: \"%s\"\n", test1);
+	printf("Set string     : \"%s\"\n", set);
+	printf("Trimmed string : \"%s\"\n", my_result);
 
 	for (size_t i = 0; i < strlen(my_result); i++)
 		printf("%c", my_result[i]);
@@ -45,13 +45,16 @@ int main(void)
 	free(my_result);
 	my_result = NULL;
 
-	char *trimmed = ft_strtrim("aaaaaa", "a");
+	printf("\n\n");
+	printf("Case for: string = \"aaaaaaaa\", set = \"a\"\n");
+	char *trimmed = ft_strtrim("aaaaaaaa", "a");
 	if (trimmed)
 	{
 		printf("Result: '%s'\n", trimmed);
 		free(trimmed);
 	}
+	trimmed = NULL;
 	
-	return 0;
+	return (0);
 }
 */
