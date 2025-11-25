@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -69,3 +68,4 @@ typedef struct s_list
 t_list	*ft_lstnew(void *content);
 
 #endif
+
