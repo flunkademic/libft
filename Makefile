@@ -1,59 +1,28 @@
+CC = cc 
+CFLAGS = -Wall -Werror -Wextra
+INCLUDE = -I.
 
-#ifndef LIBFT_H
-# define LIBFT_H
+NAME = libft.a
+SRCS = ft_atoi.c ft_itoa.c ft_putchar_fd.c ft_strjoin.c	ft_strtrim.c ft_bzero.c ft_putendl_fd.c ft_strlcat.c ft_substr.c ft_calloc.c ft_putnbr_fd.c ft_strlcpy.c ft_tolower.c ft_isalnum.c ft_memchr.c ft_putstr_fd.c ft_strlen.c ft_toupper.c ft_isalpha.c ft_memcmp.c ft_split.c ft_strmapi.c ft_isascii.c ft_memcpy.c ft_strchr.c ft_strncmp.c ft_isdigit.c ft_memmove.c ft_strdup.c ft_strnstr.c ft_isprint.c ft_memset.c ft_striteri.c ft_strrchr.c
+OBJS = $(SRCS:.c=.o)
 
-# include <stdio.h>
-# include <stdlib.h>
-// #include <bsd/string.h>
-# include <string.h>
-# include <strings.h>
-# include <stddef.h>
-# include <ctype.h>
-# include <stdint.h>
-# include <limits.h>
-# include <unistd.h>
+BONUS_SRCS = ft_lstnew.c
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-size_t	ft_strlen(const char *s);
-void	*ft_memset(void *s, int c, size_t n);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-void	*ft_memmove(void *dest, const void *src, size_t n);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
-int		ft_toupper(int c);
-int		ft_tolower(int c);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strrchr(const char *s, int c);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-void	*ft_memchr(const void *s, int c, size_t n);
-int		ft_memcmp(const void *s1, const void *s2, size_t n);
-char	*ft_strnstr(const char *big, const char *little, size_t len);
-int		ft_atoi(const char *str);
-void	*ft_calloc(size_t nmemb, size_t size);
-char	*ft_strdup(char *str);
-char	*ft_substr(const char *s, unsigned int start, size_t len);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strtrim(char const *s1, char const *set);
-char	**ft_split(char const *s, char c);
-char	*ft_itoa(int n);
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
+all: $(NAME)
 
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
-t_list	*ft_lstnew(void *content);
+bonus: $(OBJS) $(BONUS_OBJS)
+	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
-#endif
+clean:
+	rm -f $(OBJS) $(BONUS_OBJS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re bonus
