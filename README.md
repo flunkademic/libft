@@ -10,14 +10,15 @@ This project is part of the 42 curriculum. I reimplemented functions from the C 
 - Simple linked list utilities (`ft_lstnew`, `ft_lstadd_front`, `ft_lstsize`, etc.)
 
 ## How to use
-Compile into a static library:
+This project includes a Makefile. Simply run:
 ```bash
-cc -Wall -Wextra -Werror -c *.c
-ar rcs libft.a *.o
-```
-Include libft.h and link with libft.a.
+make
+This will compile all .c files and create libft.a.
 
-Example:
+Include libft.h and link with libft.a in your projects.
+```
+
+## Example:
 
 ```
 #include "libft.h"
@@ -30,8 +31,6 @@ int main(void)
     return 0;
 }
 ```
----
-
-Note:
+## Note
 
 This code is for educational purposes only and should not be copied for assignments or projects elsewhere.
