@@ -13,10 +13,11 @@ This project is part of the 42 curriculum. I reimplemented functions from the C 
 This project includes a Makefile. Simply run:
 ```bash
 make
+```
 This will compile all .c files and create libft.a.
 
 Include libft.h and link with libft.a in your projects.
-```
+
 
 ## Example:
 
@@ -28,9 +29,11 @@ int main(void)
 {
     char str[] = "Hello!";
     printf("Length: %zu\n", ft_strlen(str));
-    return 0;
+    return (0);
 }
 ```
+---
+
 ## Note
 
 This code is for educational purposes only and should not be copied for assignments or projects elsewhere.
