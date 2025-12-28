@@ -32,5 +32,6 @@ int main(void)
 ```
 ---
 
-Note
+Note:
+
 This code is for educational purposes only and should not be copied for assignments or projects elsewhere.
